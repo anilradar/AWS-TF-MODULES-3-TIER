@@ -65,13 +65,14 @@ resource "aws_launch_template" "web_launch_template" {
   name_prefix   = "web-launch-template"
   image_id      = "ami-0e2e44c03b85f58b3"
   instance_type = "t2.micro"
+  user_data = file("install-apache.sh")
 }
 
 # Web - Auto Scaling Group
 resource "aws_autoscaling_group" "web_asg" {
-  desired_capacity  = 0
-  max_size          = 0
-  min_size          = 0
+  desired_capacity  = 1
+  max_size          = 1
+  min_size          = 1
   target_group_arns = [aws_lb_target_group.web_target_group.arn]
 
   # vpc_zone_identifier = [for value in aws_subnet.public_subnet: value.id]
