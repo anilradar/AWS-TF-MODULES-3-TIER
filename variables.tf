@@ -91,177 +91,177 @@ variable "ec2_ingress_protocol" {
 }
 
 
-#----------------------------------------------- Part III: App Tier-----------------------------------------------
+# #----------------------------------------------- Part III: App Tier-----------------------------------------------
 
-# App - ALB Security Group
-variable "app_alb_sg_ingress_from_port" {
-}
+# # App - ALB Security Group
+# variable "app_alb_sg_ingress_from_port" {
+# }
 
-variable "app_alb_sg_ingress_to_port" {
-}
+# variable "app_alb_sg_ingress_to_port" {
+# }
 
-variable "app_alb_sg_ingress_protocol" {
-}
+# variable "app_alb_sg_ingress_protocol" {
+# }
 
-variable "app_alb_sg_egress_from_port" {
-}
+# variable "app_alb_sg_egress_from_port" {
+# }
 
-variable "app_alb_sg_egress_to_port" {
-}
+# variable "app_alb_sg_egress_to_port" {
+# }
 
-variable "app_alb_sg_egress_protocol" {
-}
+# variable "app_alb_sg_egress_protocol" {
+# }
 
-variable "app_alb_sg_egress_cidr_blocks" {
-}
-
-
-# App - Application Load Balancer
-variable "app_aws_lb" {
-}
+# variable "app_alb_sg_egress_cidr_blocks" {
+# }
 
 
-
-# App - Listener
-variable "app_listener_port" {
-}
-
-variable "app_listener_protocol" {
-}
-
-variable "app_listener_type" {
-}
-
-
-# App - Target Group
-variable "app_target_group_port" {
-}
-
-variable "app_target_group_protocol" {
-}
-
-variable "app_target_group_health_check_port" {
-}
-
-variable "app_target_group_health_check_protocol" {
-}
-
-
-# App - EC2 Instance Security Group
-variable "app_instance_sg_ingress_from_port" {
-}
-
-variable "app_instance_sg_ingress_to_port" {
-}
-
-variable "app_instance_sg_ingress_protocol" {
-}
-
-variable "app_instance_sg_egress_from_port" {
-}
-
-variable "app_instance_sg_egress_to_port" {
-}
-
-variable "app_instance_sg_egress_protocol" {
-}
-
-variable "app_instance_sg_egress_cidr_blocks" {
-}
-
-
-# App - Launch Template
-variable "app_launch_template_name_prefix" {
-}
-
-variable "app_launch_template_image_id" {
-}
-
-variable "app_launch_template_instance_type" {
-}
+# # App - Application Load Balancer
+# variable "app_aws_lb" {
+# }
 
 
 
-# App - Auto Scaling Group
-variable "app_asg_desired_capacity" {
-}
+# # App - Listener
+# variable "app_listener_port" {
+# }
 
-variable "app_asg_max_size" {
-}
+# variable "app_listener_protocol" {
+# }
 
-variable "app_asg_min_size" {
-}
-
-# --------------------------------------------------------- Part IV: DB ---------------------------------------------------------
-
-# DB - Security Group
-
-variable "db_sg_ingress_from_port" {
-}
-
-variable "db_sg_ingress_to_port" {
-}
-
-variable "db_sg_ingress_protocol" {
-}
-
-variable "db_sg_egress_from_port" {
-}
-
-variable "db_sg_egress_to_port" {
-}
-
-variable "db_sg_egress_protocol" {
-}
-
-variable "cidr_blocks_sg_egress_protocol" {
-}
+# variable "app_listener_type" {
+# }
 
 
+# # App - Target Group
+# variable "app_target_group_port" {
+# }
 
-# DB - RDS Instance
+# variable "app_target_group_protocol" {
+# }
 
-variable "db_rds_instance_allocated_storage" {
-}
+# variable "app_target_group_health_check_port" {
+# }
 
-variable "db_rds_instance_backup_retention_period" {
-}
+# variable "app_target_group_health_check_protocol" {
+# }
 
-variable "db_rds_instance_engine" {
-}
 
-variable "db_rds_instance_engine_version" {
-}
+# # App - EC2 Instance Security Group
+# variable "app_instance_sg_ingress_from_port" {
+# }
 
-variable "db_rds_instance_identifier" {
-}
+# variable "app_instance_sg_ingress_to_port" {
+# }
 
-variable "db_rds_instance_instance_class" {
-}
+# variable "app_instance_sg_ingress_protocol" {
+# }
 
-variable "db_rds_instance_multi_az" {
-}
+# variable "app_instance_sg_egress_from_port" {
+# }
 
-variable "db_rds_instance_name" {
-}
+# variable "app_instance_sg_egress_to_port" {
+# }
 
-variable "db_rds_instance_username" {
-}
+# variable "app_instance_sg_egress_protocol" {
+# }
 
-variable "db_rds_instance_password" {
-}
+# variable "app_instance_sg_egress_cidr_blocks" {
+# }
 
-variable "db_rds_instance_port" {
-}
 
-variable "db_rds_instance_publicly_accessible" {
-}
+# # App - Launch Template
+# variable "app_launch_template_name_prefix" {
+# }
 
-variable "db_rds_instance_storage_encrypted" {
-}
+# variable "app_launch_template_image_id" {
+# }
 
-variable "db_rds_instance_storage_type" {
-}
+# variable "app_launch_template_instance_type" {
+# }
 
-variable "db_rds_instance_skip_final_snapshot" {
-}
+
+
+# # App - Auto Scaling Group
+# variable "app_asg_desired_capacity" {
+# }
+
+# variable "app_asg_max_size" {
+# }
+
+# variable "app_asg_min_size" {
+# }
+
+# # --------------------------------------------------------- Part IV: DB ---------------------------------------------------------
+
+# # DB - Security Group
+
+# variable "db_sg_ingress_from_port" {
+# }
+
+# variable "db_sg_ingress_to_port" {
+# }
+
+# variable "db_sg_ingress_protocol" {
+# }
+
+# variable "db_sg_egress_from_port" {
+# }
+
+# variable "db_sg_egress_to_port" {
+# }
+
+# variable "db_sg_egress_protocol" {
+# }
+
+# variable "cidr_blocks_sg_egress_protocol" {
+# }
+
+
+
+# # DB - RDS Instance
+
+# variable "db_rds_instance_allocated_storage" {
+# }
+
+# variable "db_rds_instance_backup_retention_period" {
+# }
+
+# variable "db_rds_instance_engine" {
+# }
+
+# variable "db_rds_instance_engine_version" {
+# }
+
+# variable "db_rds_instance_identifier" {
+# }
+
+# variable "db_rds_instance_instance_class" {
+# }
+
+# variable "db_rds_instance_multi_az" {
+# }
+
+# variable "db_rds_instance_name" {
+# }
+
+# variable "db_rds_instance_username" {
+# }
+
+# variable "db_rds_instance_password" {
+# }
+
+# variable "db_rds_instance_port" {
+# }
+
+# variable "db_rds_instance_publicly_accessible" {
+# }
+
+# variable "db_rds_instance_storage_encrypted" {
+# }
+
+# variable "db_rds_instance_storage_type" {
+# }
+
+# variable "db_rds_instance_skip_final_snapshot" {
+# }

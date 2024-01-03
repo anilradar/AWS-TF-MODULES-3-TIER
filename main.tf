@@ -67,124 +67,124 @@ module "Web_Tier" {
 
 
 
-#--------------------------------------------------------- Part III: App Tier ---------------------------------------------------------
-module "App_Tier" {
-  source = "./modules/App_Tier"
+# #--------------------------------------------------------- Part III: App Tier ---------------------------------------------------------
+# module "App_Tier" {
+#   source = "./modules/App_Tier"
 
 
 
-  # App - ALB Security Group
+#   # App - ALB Security Group
 
-  web_instance_sg_id = module.Web_Tier.web_instance_sg_id
+#   web_instance_sg_id = module.Web_Tier.web_instance_sg_id
 
-  app_alb_sg_ingress_from_port  = var.app_alb_sg_ingress_from_port
-  app_alb_sg_ingress_to_port    = var.app_alb_sg_ingress_to_port
-  app_alb_sg_ingress_protocol   = var.app_alb_sg_ingress_protocol
-  app_alb_sg_egress_from_port   = var.app_alb_sg_egress_from_port
-  app_alb_sg_egress_to_port     = var.app_alb_sg_egress_to_port
-  app_alb_sg_egress_protocol    = var.app_alb_sg_egress_protocol
-  app_alb_sg_egress_cidr_blocks = var.app_alb_sg_egress_cidr_blocks
-
-
-  # App - Application Load Balancer
-  app_aws_lb = var.app_aws_lb
+#   app_alb_sg_ingress_from_port  = var.app_alb_sg_ingress_from_port
+#   app_alb_sg_ingress_to_port    = var.app_alb_sg_ingress_to_port
+#   app_alb_sg_ingress_protocol   = var.app_alb_sg_ingress_protocol
+#   app_alb_sg_egress_from_port   = var.app_alb_sg_egress_from_port
+#   app_alb_sg_egress_to_port     = var.app_alb_sg_egress_to_port
+#   app_alb_sg_egress_protocol    = var.app_alb_sg_egress_protocol
+#   app_alb_sg_egress_cidr_blocks = var.app_alb_sg_egress_cidr_blocks
 
 
-  # App - Listener
-  app_listener_port     = var.app_listener_port
-  app_listener_protocol = var.app_listener_protocol
-  app_listener_type     = var.app_listener_type
-
-  # App - Target Group
-  app_target_group_port                  = var.app_target_group_port
-  app_target_group_protocol              = var.app_target_group_protocol
-  app_target_group_health_check_port     = var.app_target_group_health_check_port
-  app_target_group_health_check_protocol = var.app_target_group_health_check_protocol
+#   # App - Application Load Balancer
+#   app_aws_lb = var.app_aws_lb
 
 
-  # App - EC2 Instance Security Group
-  app_instance_sg_ingress_from_port  = var.app_instance_sg_ingress_from_port
-  app_instance_sg_ingress_to_port    = var.app_instance_sg_ingress_to_port
-  app_instance_sg_ingress_protocol   = var.app_instance_sg_ingress_protocol
-  app_instance_sg_egress_from_port   = var.app_instance_sg_egress_from_port
-  app_instance_sg_egress_to_port     = var.app_instance_sg_egress_to_port
-  app_instance_sg_egress_protocol    = var.app_instance_sg_egress_protocol
-  app_instance_sg_egress_cidr_blocks = var.app_instance_sg_egress_cidr_blocks
+#   # App - Listener
+#   app_listener_port     = var.app_listener_port
+#   app_listener_protocol = var.app_listener_protocol
+#   app_listener_type     = var.app_listener_type
+
+#   # App - Target Group
+#   app_target_group_port                  = var.app_target_group_port
+#   app_target_group_protocol              = var.app_target_group_protocol
+#   app_target_group_health_check_port     = var.app_target_group_health_check_port
+#   app_target_group_health_check_protocol = var.app_target_group_health_check_protocol
 
 
-
-  # App - Launch Template
-  app_launch_template_name_prefix   = var.app_launch_template_name_prefix
-  app_launch_template_image_id      = var.app_launch_template_image_id
-  app_launch_template_instance_type = var.app_launch_template_instance_type
-
-
-  # App - Auto Scaling Group
-  app_asg_desired_capacity = var.app_asg_desired_capacity
-  app_asg_max_size         = var.app_asg_max_size
-  app_asg_min_size         = var.app_asg_min_size
-
-
-  #VPC ID
-  vpc_id = module.vpc.vpc_id
-
-
-  #vpc_zone_identifiers is private subnet
-  vpc_zone_identifiers = module.vpc.private_subnet_id
-
-}
-
-
-# --------------------------------------------------------- Part IV: DB ---------------------------------------------------------
-
-module "DB" {
-  source = "./modules/DB"
-
-
-  # DB - Security Group
-  db_sg_ingress_from_port        = var.db_sg_ingress_from_port
-  db_sg_ingress_to_port          = var.db_sg_ingress_to_port
-  db_sg_ingress_protocol         = var.db_sg_ingress_protocol
-  db_sg_egress_from_port         = var.db_sg_egress_from_port
-  db_sg_egress_to_port           = var.db_sg_egress_to_port
-  db_sg_egress_protocol          = var.db_sg_egress_protocol
-  cidr_blocks_sg_egress_protocol = var.cidr_blocks_sg_egress_protocol
+#   # App - EC2 Instance Security Group
+#   app_instance_sg_ingress_from_port  = var.app_instance_sg_ingress_from_port
+#   app_instance_sg_ingress_to_port    = var.app_instance_sg_ingress_to_port
+#   app_instance_sg_ingress_protocol   = var.app_instance_sg_ingress_protocol
+#   app_instance_sg_egress_from_port   = var.app_instance_sg_egress_from_port
+#   app_instance_sg_egress_to_port     = var.app_instance_sg_egress_to_port
+#   app_instance_sg_egress_protocol    = var.app_instance_sg_egress_protocol
+#   app_instance_sg_egress_cidr_blocks = var.app_instance_sg_egress_cidr_blocks
 
 
 
-  # DB - RDS Instance
-  db_rds_instance_allocated_storage       = var.db_rds_instance_allocated_storage
-  db_rds_instance_backup_retention_period = var.db_rds_instance_backup_retention_period
-  db_rds_instance_engine                  = var.db_rds_instance_engine
-  db_rds_instance_engine_version          = var.db_rds_instance_engine_version
-  db_rds_instance_identifier              = var.db_rds_instance_identifier
-  db_rds_instance_instance_class          = var.db_rds_instance_instance_class
-  db_rds_instance_multi_az                = var.db_rds_instance_multi_az
-  db_rds_instance_name                    = var.db_rds_instance_name
-  db_rds_instance_username                = var.db_rds_instance_username
-  db_rds_instance_password                = var.db_rds_instance_password
-  db_rds_instance_port                    = var.db_rds_instance_port
-  db_rds_instance_publicly_accessible     = var.db_rds_instance_publicly_accessible
-  db_rds_instance_storage_encrypted       = var.db_rds_instance_storage_encrypted
-  db_rds_instance_storage_type            = var.db_rds_instance_storage_type
-  db_rds_instance_skip_final_snapshot     = var.db_rds_instance_skip_final_snapshot
+#   # App - Launch Template
+#   app_launch_template_name_prefix   = var.app_launch_template_name_prefix
+#   app_launch_template_image_id      = var.app_launch_template_image_id
+#   app_launch_template_instance_type = var.app_launch_template_instance_type
+
+
+#   # App - Auto Scaling Group
+#   app_asg_desired_capacity = var.app_asg_desired_capacity
+#   app_asg_max_size         = var.app_asg_max_size
+#   app_asg_min_size         = var.app_asg_min_size
+
+
+#   #VPC ID
+#   vpc_id = module.vpc.vpc_id
+
+
+#   #vpc_zone_identifiers is private subnet
+#   vpc_zone_identifiers = module.vpc.private_subnet_id
+
+# }
+
+
+# # --------------------------------------------------------- Part IV: DB ---------------------------------------------------------
+
+# module "DB" {
+#   source = "./modules/DB"
+
+
+#   # DB - Security Group
+#   db_sg_ingress_from_port        = var.db_sg_ingress_from_port
+#   db_sg_ingress_to_port          = var.db_sg_ingress_to_port
+#   db_sg_ingress_protocol         = var.db_sg_ingress_protocol
+#   db_sg_egress_from_port         = var.db_sg_egress_from_port
+#   db_sg_egress_to_port           = var.db_sg_egress_to_port
+#   db_sg_egress_protocol          = var.db_sg_egress_protocol
+#   cidr_blocks_sg_egress_protocol = var.cidr_blocks_sg_egress_protocol
+
+
+
+#   # DB - RDS Instance
+#   db_rds_instance_allocated_storage       = var.db_rds_instance_allocated_storage
+#   db_rds_instance_backup_retention_period = var.db_rds_instance_backup_retention_period
+#   db_rds_instance_engine                  = var.db_rds_instance_engine
+#   db_rds_instance_engine_version          = var.db_rds_instance_engine_version
+#   db_rds_instance_identifier              = var.db_rds_instance_identifier
+#   db_rds_instance_instance_class          = var.db_rds_instance_instance_class
+#   db_rds_instance_multi_az                = var.db_rds_instance_multi_az
+#   db_rds_instance_name                    = var.db_rds_instance_name
+#   db_rds_instance_username                = var.db_rds_instance_username
+#   db_rds_instance_password                = var.db_rds_instance_password
+#   db_rds_instance_port                    = var.db_rds_instance_port
+#   db_rds_instance_publicly_accessible     = var.db_rds_instance_publicly_accessible
+#   db_rds_instance_storage_encrypted       = var.db_rds_instance_storage_encrypted
+#   db_rds_instance_storage_type            = var.db_rds_instance_storage_type
+#   db_rds_instance_skip_final_snapshot     = var.db_rds_instance_skip_final_snapshot
 
 
   
 
 
-  #VPC ID (pasing from VPC Module)
-  vpc_id = module.vpc.vpc_id
+#   #VPC ID (pasing from VPC Module)
+#   vpc_id = module.vpc.vpc_id
 
 
-  # DB - Security Group taken from App sg
-  db_security_groups = module.App_Tier.app_instance_sg
+#   # DB - Security Group taken from App sg
+#   db_security_groups = module.App_Tier.app_instance_sg
 
 
 
-  # DB - Subnet Group 
+#   # DB - Subnet Group 
 
-  db_subnets_ids = module.vpc.db_subnet_id
+#   db_subnets_ids = module.vpc.db_subnet_id
 
 
-}
+# }
